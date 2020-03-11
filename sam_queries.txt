@@ -1,0 +1,76 @@
+Single post list query
+query {
+  post(id: 1) {
+    title
+    author
+    comment {
+      text
+      author
+    }
+  }
+}
+
+All post list query
+query {
+  posts{
+    title
+    author
+    comment {
+      text
+      author
+    }
+  }
+}
+
+All comment list query
+{
+  comments {
+    text
+    author
+    post {
+      title
+    }
+  }
+}
+
+Create Post
+mutation {
+  createPost(title: "Ruby Tuesday", description: "Goodbye ruby Tuesday", author: "Rolling stones"){
+    post{
+      id
+      title
+    }
+  }
+}
+
+Update Post
+mutation {
+  updatePost(id:2, title: "Ruby Monday", description: "Goodbye ruby Monday", author: "Rolling"){
+    post{
+      id
+      title
+    }
+  }
+}
+
+
+Create Comment
+mutation {
+  createComment(postId: 5, text: "She would never say where she came from", author: "Bobby Goldsboro") {
+    comment {
+      id
+      text
+    }
+  }
+}
+
+Update Comment
+mutation {
+  updateComment(id:9, text:"Test 2",author: "Rolling stone"){
+    comment{
+      id
+      text
+    }
+  }
+}
+
